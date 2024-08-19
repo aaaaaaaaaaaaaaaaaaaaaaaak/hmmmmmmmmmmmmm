@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExtHang3r</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 150px auto;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    select {
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      width: 100%;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://blobby-boi.github.io/BlobbypassXSS/favicon.png" alt="Logo" class="logo">
+  <h1>ExtHang3r</h1>
+</header>
+
+<div class="container">
+  <p>ExtHang3r helps ChromeOS users manage extensions by providing a way to hang or kill them.</p>
+  <label for="iframeSelect">Select extension:</label>
+  <select id="iframeSelect">
+    <!-- Options will be added dynamically -->
+  </select>
+  <button onclick="showPrompt()">Start Process</button>
+</div>
+
+<footer>
+  <p>Made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a></p>
+</footer>
+
+<script>
+  function showPrompt() {
+    const extensions = {
+      "Securly": "chrome-extension://joflmkccibkooplaeoinecjbmdebglab/fonts/Metropolis.css",
+      "Securly (old)": "chrome-extension://iheobagjkfklnlikgihanlhcddjoihkg/fonts/Metropolis.css",
+      "GoGuardian": "chrome-extension://haldlgldplgnggkjaafhelgiaglafanh/youtube_injection.js",
+      // Add more extensions as needed
+    };
+    
+    let extensionNames = Object.keys(extensions);
+    let extensionOptions = extensionNames.join(", ");
+    
+    let userChoice = prompt(`Available extensions: ${extensionOptions}\n\nPlease enter the name of the extension you want to hang or kill:`);
+    
+    if (userChoice && extensionNames.includes(userChoice)) {
+      let selectedUrl = extensions[userChoice];
+      alert(`You selected: ${userChoice}\nExtension URL: ${selectedUrl}\n\nThe process to hang or kill the extension will start.`);
+      // Call functions to handle hanging/kill logic if necessary
+    } else {
+      alert("Invalid selection or no extension selected.");
+    }
+  }
+</script>
+
+</body>
+</html>
